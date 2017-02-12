@@ -24,4 +24,6 @@ Level 5
 * Disorderly Escape
 
 
-I'll also post explanations on my blog so stay tuned.
+I'll also post explanations on my blog so stay tuned:
+
+- [Google Foobar, How I got in](http://davood.nowzari.com/2017/02/google-foobar-how-i-got-in.html)
