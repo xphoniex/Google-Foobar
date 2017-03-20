@@ -2,20 +2,20 @@
 
 Inputs:
     (int) maze = [[0, 1, 1, 0], 
-    			  [0, 0, 0, 1], 
-    			  [1, 1, 0, 0], 
-    			  [1, 1, 1, 0]]
+    		  [0, 0, 0, 1], 
+    		  [1, 1, 0, 0], 
+    		  [1, 1, 1, 0]]
 Output:
     (int) 7
 
 
 Inputs:
     (int) maze = [[0, 0, 0, 0, 0, 0], 
-    			  [1, 1, 1, 1, 1, 0], 
-    			  [0, 0, 0, 0, 0, 0], 
-    			  [0, 1, 1, 1, 1, 1], 
-    			  [0, 1, 1, 1, 1, 1], 
-    			  [0, 0, 0, 0, 0, 0]]
+    		  [1, 1, 1, 1, 1, 0], 
+    		  [0, 0, 0, 0, 0, 0], 
+  		  [0, 1, 1, 1, 1, 1], 
+    		  [0, 1, 1, 1, 1, 1], 
+    		  [0, 0, 0, 0, 0, 0]]
 Output:
     (int) 11
 
@@ -132,26 +132,8 @@ public class Answer {
 		if (solved>0)
 			min = Math.min(min,	solved);
 
-		System.out.println(min);
-
 		int minPlus1 = min + 1;
-
-		for (int y = 0; y < h ; y++, System.out.println())
-			for (int x = 0; x < w ; x++)
-				if (minRegular[y][x]<10)
-					System.out.print(" "+minRegular[y][x]+" ");
-				else
-					System.out.print(minRegular[y][x]+" ");
-
-		System.out.println();
-
-		for (int y = 0; y < h ; y++, System.out.println())
-			for (int x = 0; x < w ; x++)
-				if (minRegular2[y][x]<10)
-					System.out.print(" "+minRegular2[y][x]+" ");
-				else
-					System.out.print(minRegular2[y][x]+" ");
-
+		
 		for (int o = 0; o < ones.size(); o++)
 		{
 			point oPoint = ones.get(o);
@@ -185,52 +167,10 @@ public class Answer {
 			// 1 + neighbours(0) + neighbours2(0)
 			if (neighbours.size()>0 && neighbours2.size()>0) {
 				min = Math.min(min, 1+neighbours.get(0)+neighbours2.get(0));
-			//	System.out.println("~"+min+"  x:"+x+" y:"+y+ "	min/min2:" + neighbours.get(0) +"/" + neighbours2.get(0));
 			}			
 
 		}
 
-/*
-		for (int y = 0; y < h ; y++) {
-			for (int x = 0; x < w ; x++) {
-				if (maze[y][x] == 1) {
-
-					ArrayList<Integer> neighbours = new ArrayList<Integer>();
-					ArrayList<Integer> neighbours2 = new ArrayList<Integer>();
-
-					if (y-1 >= 0 && minRegular[y-1][x] > 0)
-						neighbours.add(minRegular[y-1][x]);
-					if (y+1 < h && minRegular[y+1][x] > 0)
-						neighbours.add(minRegular[y+1][x]);
-					if (x-1 >= 0 && minRegular[y][x-1] > 0)
-						neighbours.add(minRegular[y][x-1]);
-					if (x+1 < w && minRegular[y][x+1] > 0)
-						neighbours.add(minRegular[y][x+1]);
-
-					if (y-1 >= 0 && minRegular2[y-1][x] > 0)
-						neighbours2.add(minRegular2[y-1][x]);
-					if (y+1 < h && minRegular2[y+1][x] > 0)
-						neighbours2.add(minRegular2[y+1][x]);
-					if (x-1 >= 0 && minRegular2[y][x-1] > 0)
-						neighbours2.add(minRegular2[y][x-1]);
-					if (x+1 < w && minRegular2[y][x+1] > 0)
-						neighbours2.add(minRegular2[y][x+1]);
-
-					Collections.sort(neighbours);
-					Collections.sort(neighbours2);
-
-					// 1 + smallest + [ minPlues1 - biggest ] <-- WRONG
-					// 1 + neighbours(0) + neighbours2(0)
-					if (neighbours.size()>0 && neighbours2.size()>0) {
-						min = Math.min(min, 1+neighbours.get(0)+neighbours2.get(0));
-						//min = Math.min(min,1 + neighbours.get(0) + (minPlus1 - neighbours.get(neighbours.size()-1)));
-						System.out.println("~"+min+"  x:"+x+" y:"+y+ "	min/min2:" + neighbours.get(0) +"/" + neighbours2.get(0));
-					}
-					
-				}
-			}
-		}
-*/
 		return min;
 	}
 
@@ -238,29 +178,28 @@ public class Answer {
 	public static void main(String[] args) {
 	
 		int[][] maze2 = {{0, 1, 1, 0}, 
-						{0, 0, 0, 1}, 
-						{1, 1, 0, 0}, 
-						{1, 1, 1, 0}};
+			 	 {0, 0, 0, 1}, 
+			 	 {1, 1, 0, 0}, 
+				 {1, 1, 1, 0}};
 					
 
 
 		int[][] maze = {{0, 0, 0, 0, 0}, 
-						{1, 1, 1, 1, 0}, 
-						{0, 0, 0, 0, 0},
-						{0, 1, 0, 1, 1}, 
-						{0, 0, 0, 0, 0}};
+				{1, 1, 1, 1, 0}, 
+				{0, 0, 0, 0, 0},
+				{0, 1, 0, 1, 1}, 
+				{0, 0, 0, 0, 0}};
 
 /*
 
 		int[][] maze = {{0, 0, 0, 0, 0, 0},
-						{1, 1, 1, 1, 1, 0},
-						{0, 0, 0, 0, 0, 0},
-						{1, 1, 0, 1, 1, 1},
-						{0, 1, 0, 1, 1, 1},
-						{0, 0, 0, 0, 0, 0}};
+				{1, 1, 1, 1, 1, 0},
+				{0, 0, 0, 0, 0, 0},
+				{1, 1, 0, 1, 1, 1},
+				{0, 1, 0, 1, 1, 1},
+				{0, 0, 0, 0, 0, 0}};
 */
-
-    	System.out.println("min: " + answer(maze));
+    		System.out.println("min: " + answer(maze));
 	}
 
 }
